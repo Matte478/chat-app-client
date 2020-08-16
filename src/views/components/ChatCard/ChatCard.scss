@@ -27,11 +27,11 @@
 
     .icon-online {
       display: inline-block;
-      width: 5px;
-      height: 5px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background-color: green;
-      margin: 0 0.7em;
+      background-color: $color-active;
+      margin: 0 0.8em;
     }
 
     .icon-close {
@@ -59,20 +59,21 @@
     height: 50vh;
     display: flex;
     flex-direction: column;
-    padding: 1em 0.7em 0.3em 0.7em;
     color: $color-base;
     background-color: $color-text;
     overflow: auto;
 
     & > div:first-child {
       margin-top: auto;
+      padding-top: 0.7em;
     }
 
     .message {
       display: flex;
       padding: 0.5em 1em;
+      margin: 0 1em 0.4em 1em;
       margin-bottom: 0.4em;
-      width: 95%;
+      width: 85%;
       background-color: $color-base-light;
       border-radius: 1em 1em 1em 0;
 
@@ -90,7 +91,7 @@
         margin-right: auto;
         padding: 0.2em 0.5em;
         justify-content: center;
-        width: 90%;
+        width: 75%;
         text-align: center;
         border-radius: 1em 1em 1em 1em;
         background-color: $color-base-light;
@@ -115,6 +116,20 @@
         &_user {
           font-weight: 700;
         }
+      }
+    }
+
+    .scroll-bottom {
+      right: 14px;
+      width: 15px;
+      height: 15px;
+      background-color: rgba($color-accent, 0.5);
+      background-color: rgba($color-base-lighter, 0.3);
+      transition: background-color .1s ease-in-out;
+
+      &:hover {
+        background-color: rgba($color-accent, 0.8);
+        background-color: rgba($color-base-lighter, .6);
       }
     }
   }

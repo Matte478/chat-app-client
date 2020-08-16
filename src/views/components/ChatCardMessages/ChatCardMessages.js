@@ -1,4 +1,5 @@
 import React from 'react'
+import ScrollToBottom from 'react-scroll-to-bottom'
 
 import ChatCardMessagesItem from './../ChatCardMessagesItem/ChatCardMessagesItem'
 
@@ -10,9 +11,12 @@ const ChatCardMessages = (props) => {
   }
 
   return (
-    <div className="chat-card__messages">
+    <ScrollToBottom
+      className="chat-card__messages"
+      followButtonClassName="scroll-bottom"
+    >
       {props.messages.map((message, index) => renderMessage(message, index))}
-    </div>
+    </ScrollToBottom>
   )
 }
 

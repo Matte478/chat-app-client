@@ -1,28 +1,11 @@
 import React from 'react'
 
+import ChatCardMessagesItem from './../ChatCardMessagesItem/ChatCardMessagesItem'
+
 const ChatCardMessages = (props) => {
   const renderMessage = (message, index) => {
     return (
-      <div>
-        {message.user !== props.user ? (
-          <div className="message" key={index}>
-            <div className="message__icon">
-              {message.user.charAt(0).toUpperCase()}
-            </div>
-            <div className="message__text">
-              <span className="message__text_user">{message.user}</span>
-              <p>{message.text}</p>
-            </div>
-          </div>
-        ) : (
-          <div className="message message--right" key={index}>
-            <div className="message__text">
-              <span className="message__text_user">You</span>
-              <p>{message.text}</p>
-            </div>
-          </div>
-        )}
-      </div>
+      <ChatCardMessagesItem user={props.user} message={message} index={index} />
     )
   }
 

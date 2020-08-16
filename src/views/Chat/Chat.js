@@ -66,7 +66,12 @@ class Chat extends Component {
         <div className="container">
           <div className="row">
             <div className="col">
-              <ChatCard user={this.state.name} room={this.state.room} messages={this.state.messages} sendMessage={this.sendMessage} />
+              <ChatCard
+                user={this.state.name}
+                room={this.state.room}
+                messages={this.state.messages}
+                sendMessage={this.sendMessage}
+              />
             </div>
           </div>
         </div>

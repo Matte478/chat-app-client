@@ -85,6 +85,17 @@
         color: $color-text;
       }
 
+      &--center {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0.2em 0.5em;
+        justify-content: center;
+        width: 90%;
+        text-align: center;
+        border-radius: 1em 1em 1em 1em;
+        background-color: $color-base-light;
+      }
+
       &__icon {
         display: flex;
         justify-content: center;

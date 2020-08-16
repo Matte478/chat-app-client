@@ -6,8 +6,8 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   font-family: $font-family;
-  @include font-size(18, 24);
-  font-weight: 300;
+  @include font-size(14);
+  font-weight: 400;
   color: $color-text;
   background: $color-base;
   scroll-behavior: smooth;
@@ -40,6 +40,10 @@ b {
 
 a {
   color: $color-accent;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 input {
@@ -58,6 +62,12 @@ button {
   &-accent {
     background-color: $color-accent;
     color: $color-text;
+
+    &:hover {
+      background-color: darken($color: $color-accent, $amount: 10);
+      color: $color-text;
+      text-decoration: none;
+    }
   }
 }
 

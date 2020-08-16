@@ -1,0 +1,110 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.chat-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+
+  &__header {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.3em 0.5em 0.3em 1.3em;
+    @include font-size(18, 24);
+    color: $color-text;
+    background-color: $color-accent;
+    border-top-left-radius: 0.4em;
+    border-top-right-radius: 0.4em;
+
+    .room {
+      padding: 0 0.3em;
+      font-weight: 600;
+    }
+
+    .icon-online {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: green;
+      margin: 0 0.7em;
+    }
+
+    .icon-close {
+      margin-left: auto;
+      span {
+        position: relative;
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: $color-text;
+        transform-origin: center;
+
+        &:first-of-type {
+          transform: translateY(50%) rotate(45deg);
+        }
+
+        &:last-of-type {
+          transform: translateY(-50%) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  &__messages {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0.7em 0.3em 0.7em;
+    color: $color-base;
+    background-color: $color-text;
+    overflow: auto;
+
+    & > div:first-child {
+      margin-top: auto;
+    }
+
+    .message {
+      display: flex;
+      padding: 0.5em 1em;
+      margin-bottom: 0.4em;
+      width: 95%;
+      background-color: $color-base-light;
+      border-radius: 1em 1em 1em 0;
+
+      &--right {
+        margin-left: auto;
+        flex-direction: row-reverse;
+        text-align: right;
+        background-color: $color-accent;
+        border-radius: 1em 1em 0 1em;
+        color: $color-text;
+      }
+
+      &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        font-weight: 700;
+        background-color: $color-accent;
+        color: $color-text;
+        border-radius: 50%;
+      }
+
+      &__text {
+        padding: 0 0.5em;
+
+        &_user {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import queryString from 'query-string'
 import io from 'socket.io-client'
+import uniqid from 'uniqid'
 
 import './Chat.scss'
 
@@ -19,8 +20,14 @@ class Chat extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.handleConection()
+    this.addUniqueId()
+  }
+
+  componentWillUnmount() {
+    socket.emit('disconnect')
+    socket.off()
   }
 
   handleConection = () => {
@@ -37,18 +44,24 @@ class Chat extends Component {
 
     socket.on('message', (message) => {
       this.setState((prevState) => {
-        return { messages: [...prevState.messages, message] }
+        return {
+          messages: [...prevState.messages, { ...message, id: uniqid() }],
+        }
       })
     })
   }
 
-  componentWillUnmount() {
-    socket.emit('disconnect')
-    socket.off()
-  }
-
   sendMessage = (message, callback) => {
     socket.emit('sendMessage', message, callback)
+  }
+
+  addUniqueId = () => {
+    this.setState((prevState) => {
+      const messages = prevState.messages.map((message) => {
+        return { ...message, id: uniqid() }
+      })
+      return { messages: messages }
+    })
   }
 
   render() {

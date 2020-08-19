@@ -125,12 +125,26 @@
       height: 15px;
       background-color: rgba($color-accent, 0.5);
       background-color: rgba($color-base-lighter, 0.3);
-      transition: background-color .1s ease-in-out;
+      transition: background-color 0.1s ease-in-out;
 
       &:hover {
         background-color: rgba($color-accent, 0.8);
-        background-color: rgba($color-base-lighter, .6);
+        background-color: rgba($color-base-lighter, 0.6);
       }
     }
+  }
+
+  .emojis-card {
+    position: absolute;
+    bottom: 40px;
+    right: 5px;
+  }
+
+  .emojis-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
   }
 }

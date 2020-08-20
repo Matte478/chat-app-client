@@ -1,21 +1,21 @@
 import React from 'react'
 
-const ChatCardMessagesItem = (props) => {
+const ChatCardMessagesItem = ({ user, message }) => {
   let messageItem
-  if (props.message.user === 'admin') {
+  if (message.user === 'admin') {
     messageItem = (
       <div className="message message--center">
         <div className="message__text">
-          <p>{props.message.text}</p>
+          <p>{message.text}</p>
         </div>
       </div>
     )
-  } else if (props.message.user === props.user) {
+  } else if (message.user === user) {
     messageItem = (
       <div className="message message--right">
         <div className="message__text">
           <span className="message__text_user">You</span>
-          <p>{props.message.text}</p>
+          <p>{message.text}</p>
         </div>
       </div>
     )
@@ -23,11 +23,11 @@ const ChatCardMessagesItem = (props) => {
     messageItem = (
       <div className="message">
         <div className="message__icon">
-          {props.message.user.charAt(0).toUpperCase()}
+          {message.user.charAt(0).toUpperCase()}
         </div>
         <div className="message__text">
-          <span className="message__text_user">{props.message.user}</span>
-          <p>{props.message.text}</p>
+          <span className="message__text_user">{message.user}</span>
+          <p>{message.text}</p>
         </div>
       </div>
     )

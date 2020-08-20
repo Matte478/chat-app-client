@@ -3,15 +3,15 @@ import ScrollToBottom from 'react-scroll-to-bottom'
 
 import ChatCardMessagesItem from './../ChatCardMessagesItem/ChatCardMessagesItem'
 
-const ChatCardMessages = (props) => {
+const ChatCardMessages = ({ user, messages }) => {
   return (
     <ScrollToBottom
       className="chat-card__messages"
       followButtonClassName="scroll-bottom"
     >
-      {props.messages.map((message) => (
+      {messages.map((message) => (
         <React.Fragment key={message.id}>
-          <ChatCardMessagesItem user={props.user} message={message} />
+          <ChatCardMessagesItem user={user} message={message} />
         </React.Fragment>
       ))}
     </ScrollToBottom>

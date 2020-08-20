@@ -6,7 +6,7 @@ const ChatCardMessagesItem = ({ user, message }) => {
     messageItem = (
       <div className="message message--center">
         <div className="message__text">
-          <p>{message.text}</p>
+          <p className="message__text_content">{message.text}</p>
         </div>
       </div>
     )
@@ -14,8 +14,8 @@ const ChatCardMessagesItem = ({ user, message }) => {
     messageItem = (
       <div className="message message--right">
         <div className="message__text">
-          <span className="message__text_user">You</span>
-          <p>{message.text}</p>
+          <p className="message__text_user">You</p>
+          <p className="message__text_content">{message.text}</p>
         </div>
       </div>
     )
@@ -26,8 +26,8 @@ const ChatCardMessagesItem = ({ user, message }) => {
           {message.user.charAt(0).toUpperCase()}
         </div>
         <div className="message__text">
-          <span className="message__text_user">{message.user}</span>
-          <p>{message.text}</p>
+          <p className="message__text_user">{message.user}</p>
+          <p className="message__text_content">{message.text}</p>
         </div>
       </div>
     )

@@ -3,12 +3,16 @@ import React, { useState } from 'react'
 import { Picker } from 'emoji-mart'
 import 'emoji-mart/css/emoji-mart.css'
 
+import { ReactComponent as IconSend } from '../../../assets/images/icon-send.svg'
+
 const ChatCardInput = (props) => {
   const [message, setMessage] = useState('')
   const [activeEmojis, setActiveEmojis] = useState(false)
 
   const handleSendMessage = (event) => {
     event.preventDefault()
+
+    if (!message) return
 
     props.sendMessage(message, () => setMessage(''))
   }
@@ -30,7 +34,7 @@ const ChatCardInput = (props) => {
     <div className="chat-card__input">
       <div className="form-group p-relative">
         <input
-          className="form-control"
+          className="form-control message-input"
           type="text"
           placeholder="Message"
           onChange={({ target: { value } }) => {
@@ -49,6 +53,7 @@ const ChatCardInput = (props) => {
         <span className="emojis-btn" onClick={handleShowEmojis}>
           {String.fromCodePoint(0x1f606)}
         </span>
+        <IconSend className="submit-btn" onClick={handleSendMessage} />
       </div>
     </div>
   )

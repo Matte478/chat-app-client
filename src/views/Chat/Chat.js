@@ -8,7 +8,7 @@ import './Chat.scss'
 import ChatCard from './../components/ChatCard/ChatCard'
 
 let socket
-const endpoint = 'localhost:5000'
+const ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'localhost:5000'
 
 class Chat extends Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class Chat extends Component {
   handleConection = () => {
     const { name, room } = queryString.parse(this.props.location.search)
 
-    socket = io(endpoint)
+    socket = io(ENDPOINT)
 
     this.setState({
       name: name,
